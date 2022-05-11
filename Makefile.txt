@@ -1,0 +1,27 @@
+#Makefile
+# Nombre: Moreno Alday Saul Alejandro
+# N. control: 18210505
+# Github: https://github.com/Saulalejandro
+
+#
+all: assemble link https://github.com/Saulalejandro
+
+# 
+assemble: Holamundo.s
+        as -o exec.o Holamundo.s
+
+#       enlazado
+link: exec.o
+        ld -o exec exec.o
+
+#       desensamblado de .c a .s
+dissasemble_c: Holamundo.c
+        gcc -S Holamundo.c
+
+#       ... de .cpp a .s
+dissasemble_cpp: Holamundo.cpp
+        g++ -S Holamundo.cpp
+
+# limpieza
+clean:
+        rm -f exec.o exec
